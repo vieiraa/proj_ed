@@ -19,7 +19,10 @@ Huffman::Huffman(string s) {
         queue.push(&root);
     }
 
-    cout << queue.toString() << endl;
+    /* cout << queue.toString() << endl; */
+    cout << "ala" << endl;
+    queue.print();
+    /* sleep(5); */
 
     /* for (map<char, int>::iterator it = aux.begin(); it != aux.end(); *++it) { */
     /*     cout << "first = " << it->first << endl; */
@@ -27,6 +30,10 @@ Huffman::Huffman(string s) {
     /* } */
     queue.sort();
     queue.sort();
+
+    cout << "printing after sorting..." << endl;
+    cout << queue.toString() << endl;
+    
 }
 
 void Huffman::createTree() {
@@ -35,19 +42,28 @@ void Huffman::createTree() {
     /* BinaryTree auxTree; */
     static int c = 0;
 
-    /* cout << queue.toString() << endl; */
+    cout << queue.toString() << endl;
 
     while (queue.size() > 1) {
         first = queue.pop();
         second = queue.pop();
 
-        int fF = first->getData().first;
+        char fF = first->getData().first;
         int fS = first->getData().second;
-        int sF = second->getData().first;
+        char sF = second->getData().first;
         int sS = second->getData().second;
 
-        treeP.push_back(first);
-        treeP.push_back(second);
+/*         cout << "fF = " << fF << endl; */
+/*         cout << "fS = " << fS << endl; */
+/*         cout << "sF = " << sF << endl; */
+/*         cout << "sS = " << sS << endl; */
+
+/*         sleep(10); */
+
+        if (fF != '/')
+            treeP.push_back(first);
+        if (sF != '/')
+            treeP.push_back(second);
 
         cout << "cheguei ake" << endl;
 
@@ -56,8 +72,13 @@ void Huffman::createTree() {
         right.setPair(make_pair(sF, sS));
         root.setLeft(&left);
         root.setRight(&right);
-        left.setFather(&root, '0');
-        right.setFather(&root, '1');
+        left.setFather(&root, '0', '1');
+        right.setFather(&root, '0', '1');
+
+        cout << "balbal" << endl;
+        queue.print();
+        printPre(&root);
+        /* sleep(5); */
 
         /* cout << "testing..." << endl; */
 
@@ -66,7 +87,7 @@ void Huffman::createTree() {
         queue.push(&root);
     }
 
-    cout << "print queue..." << endl;
+    cout << "print queue after this shit..." << endl;
     cout << queue.toString() << endl;
 
     /* cout << "teste..." << endl; */

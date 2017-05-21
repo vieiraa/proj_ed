@@ -1,9 +1,10 @@
 #include <unistd.h>
 #include "Tree.h"
 
-Father::Father(Element *e, char c) {
+Father::Father(Element *e, char l, char r) {
     this->father = e;
-    this->flag = c;
+    this->flagL = l;
+    this->flagR = r;
 }
 
 Father::Father(){}
@@ -12,16 +13,21 @@ void Father::setFather(Element *e) {
     father = e;
 }
 
-void Father::setFlag(char f) {
-    flag = f;
+void Father::setFlag(char l, char r) {
+    flagL = l;
+    flagR = r;
 }
 
 Element *Father::getFather() {
     return father;
 }
 
-char Father::getFlag() {
-    return flag;
+char Father::getLFlag() {
+    return flagL;
+}
+
+char Father::getRFlag() {
+    return flagR;
 }
 
 Element::Element(pair<char, int> p) {
@@ -30,9 +36,9 @@ Element::Element(pair<char, int> p) {
 
 Element::Element(){};
 
-void Element::setFather(Element *e, char c) {
+void Element::setFather(Element *e, char l, char r) {
     father.setFather(e);
-    father.setFlag(c);
+    father.setFlag(l, r);
 }
 void Element::setPair(pair<char, int> p) {
     this->data = p;

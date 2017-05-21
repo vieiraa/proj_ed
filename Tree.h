@@ -13,15 +13,17 @@ class Element;
 
 class Father {
     Element *father;
-    char flag;
+    char flagL;
+    char flagR;
 
 public:
-    Father(Element *, char);
+    Father(Element *, char, char);
     Father();
     void setFather(Element *);
-    void setFlag(char);
+    void setFlag(char, char);
     Element *getFather();
-    char getFlag();
+    char getLFlag();
+    char getRFlag();
 };
 
 class Element {
@@ -38,7 +40,7 @@ class Element {
         void setPair(pair<char, int> p);
         void setLeft(Element *);
         void setRight(Element *);
-        void setFather(Element *, char);
+        void setFather(Element *, char, char);
         Father *getFather();
         Element *getLeft();
         pair<char, int> &getData();

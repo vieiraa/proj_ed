@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include "Tree.h"
 
 Father::Father(Element *e, char c) {
@@ -160,12 +161,27 @@ map<char, string> preOrder(Element *tree) {
 void encode(vector<Element *> treeP, map<char, string> *par) {
     if(!(treeP.size()))
         return;
+
+    cout << "to no encode" << endl;
     
     map<char, string> hash;
+
+    cout << "treeP" << endl;
+    for (int i = 0; i < treeP.size(); i++) {
+        printPre(treeP[i]);
+    }
+
+    sleep(10);
     
-    for(int i = 0; i < treeP.size(); i++) 
+    for(int i = 0; i < treeP.size(); i++) {
         for(Element *p = treeP[i]; p->father.getFather(); p = p->father.getFather())
             hash[p->getData().first] += p->father.getFlag();   
+    }
+
+    for (map<char, string>::iterator it = hash.begin(); it != hash.end(); *++it) {
+        cout << "exibindo hash em encode..." << endl;
+        cout << "[" << it->first << "] = " << it->second << endl;
+    }
     
     *par = hash;
 }
@@ -174,7 +190,7 @@ void printPre(Element *root) {
     if (!root)
         return;
 
-    cout << root->getData().second << " " << endl;
+    cout << root->getData().first << " " << root->getData().second << " " << endl;
 
     if (root->left)
         printPre(root->left);

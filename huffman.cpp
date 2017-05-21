@@ -59,7 +59,7 @@ void Huffman::createTree() {
         left.setFather(&root, '0');
         right.setFather(&root, '1');
 
-        cout << "testing..." << endl;
+        /* cout << "testing..." << endl; */
 
         /* printPre(auxTree.getRoot()); */
 

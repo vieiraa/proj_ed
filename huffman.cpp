@@ -83,7 +83,6 @@ void Huffman::createTree() {
 
 string Huffman::code() {
     static string output = "";
-    map<char, string> aux;
     map<char, string> encodedString;
 
     cout << "printing preorder on code()..." << endl;
@@ -94,12 +93,8 @@ string Huffman::code() {
     /* for (map<char, string>::iterator it = aux.begin(); it != aux.end(); *++it) */
     /*     cout << "map[" << it->first << "] = " << it->second << endl; */
     
-    /*
-    for (int i = 0; i < input.size(); i++) {
-        output += aux[input[i]];
-        output += '/';
-    }
-    */
+    for (int i = 0; i < input.size(); i++)
+        output += encodedString[input[i]];
 
     return output;
 }

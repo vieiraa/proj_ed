@@ -59,9 +59,6 @@ void Huffman::createTree() {
         left.setFather(&root, '0');
         right.setFather(&root, '1');
 
-
-        auxTree.setRoot(&root);
-
         cout << "testing..." << endl;
 
         /* printPre(auxTree.getRoot()); */
@@ -79,9 +76,32 @@ void Huffman::createTree() {
 
     tree.setRoot(queue.pop());
 
+    sort();
+
     cout << "printing preorder after tree creation..." << endl;
 
     printPre(tree.getRoot());
+}
+
+void Huffman::sort() {
+    bool flag;
+    vector<Element *>::iterator it = treeP.begin();
+    vector<Element *>::iterator aux;
+
+    do {
+        for (int i = 0; i < treeP.size() - 2; i++) {
+            for (int j = 0; j < treeP.size() - i - 1; j++) {
+                flag = false;
+
+                if (*it > *(it + 1)) {
+                    flag = true;
+                    *aux = *it;
+                    *it = *(it+1);
+                    *(it+1) = *aux;
+                }
+            }
+        }
+    } while (flag);
 }
 
 string Huffman::code() {

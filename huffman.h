@@ -21,6 +21,7 @@ public:
     Huffman(string);
     void createTree();
     string code();
+    void sort();
 };
 
 #endif

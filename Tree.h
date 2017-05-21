@@ -60,7 +60,7 @@ class BinaryTree {
 Element *search(Element *, pair<char, int>);
 map<char, string> preOrder(Element *);
 map<char, string> test(Element *);
-void encode(vector<Element *>, int);
+void encode(vector<Element *>);
 void printPre(Element *);
 
 #endif //TREE_H

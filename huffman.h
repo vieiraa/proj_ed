@@ -21,7 +21,7 @@ public:
     Huffman(string);
     void createTree();
     string code();
-    void sort();
+    void sort(string, vector<Element *> *);
 };
 
 #endif

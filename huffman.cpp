@@ -83,25 +83,6 @@ void Huffman::createTree() {
     printPre(tree.getRoot());
 }
 
-void Huffman::sort(string s, vector<Element *> *old) {
-    bool flag;
-    vector<Element *> newVec;
-    static int j = 0;
-
-    do {
-        for (int i = 0; i < s.size(); i++) {
-            flag = false;
-
-            if (treeP[i]->getData().first == s[i]){
-                flag = true;
-                newVec[j++] = treeP[i];
-            }
-        }
-    } while (flag);
-
-    *old = newVec;
-}
-
 string Huffman::code() {
     static string output = "";
     map<char, string> aux;
@@ -115,8 +96,8 @@ string Huffman::code() {
     /*     cout << "map[" << it->first << "] = " << it->second << endl; */
 
     for (int i = 0; i < input.size(); i++) {
-
         output += aux[input[i]];
+        output += '/';
     }
 
     return output;

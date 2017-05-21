@@ -32,7 +32,8 @@ Huffman::Huffman(string s) {
 void Huffman::createTree() {
     static Element root, left, right;
     Element *first, *second;
-    BinaryTree auxTree;
+    /* BinaryTree auxTree; */
+    static int c = 0;
 
     /* cout << queue.toString() << endl; */
 
@@ -45,6 +46,9 @@ void Huffman::createTree() {
         int sF = second->getData().first;
         int sS = second->getData().second;
 
+        treeP.push_back(first);
+        treeP.push_back(second);
+
         cout << "cheguei ake" << endl;
 
         root.setPair(make_pair('/', fS + sS));
@@ -52,9 +56,9 @@ void Huffman::createTree() {
         right.setPair(make_pair(sF, sS));
         root.setLeft(&left);
         root.setRight(&right);
-        left.getFather()->setFather(root, '0');
-        right.setFather(root, '1');
-        
+        left.setFather(&root, '0');
+        right.setFather(&root, '1');
+
 
         auxTree.setRoot(&root);
 

@@ -4,6 +4,7 @@
 #include <iostream>
 #include <utility>
 #include <sstream>
+#include <vector>
 #include <map>
 
 using namespace std;
@@ -46,6 +47,7 @@ class Element {
 class BinaryTree {
     private:
         Element *root;
+        map<char, string> hash;
 
     public:
 //      CONSTRUCTOR
@@ -60,7 +62,7 @@ class BinaryTree {
 Element *search(Element *, pair<char, int>);
 map<char, string> preOrder(Element *);
 map<char, string> test(Element *);
-string encode(vector<Element *>);
+void encode(vector<Element *>, map<char, string> *);
 void printPre(Element *);
 
 #endif //TREE_H

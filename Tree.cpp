@@ -88,6 +88,7 @@ Element *search(Element *root, pair<char, int> data) {
     return p;
 }
 
+/*
 map<char, string> test(Element *element) {
     map<char, string> data;
     stringstream aux;
@@ -154,24 +155,22 @@ map<char, string> preOrder(Element *tree) {
 
     return data;
 }
+*/
 
-string encode(vector<Element *> treeP) {
-    if(!size)
-        "Empty";
+void encode(vector<Element *> treeP, map<char, string> *par) {
+    if(!(treeP.size()))
+        return;
     
-    string show = "";
+    map<char, string> hash;
     
-    for(int i = 0; i < treeP.size(); i++) {
-        for(Element *p = treeP[i]; p->father; p = p->father)
-            show += treeP[i]->father.flag;
-        show += '/';
-    }
+    for(int i = 0; i < treeP.size(); i++) 
+        for(Element *p = treeP[i]; p->father.getFather(); p = p->father.getFather())
+            hash[p->getData().first] += p->father.getFlag();   
     
-    return show;
+    *par = hash;
 }
 
 void printPre(Element *root) {
-
     if (!root)
         return;
 

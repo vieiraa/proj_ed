@@ -76,8 +76,6 @@ void Huffman::createTree() {
 
     tree.setRoot(queue.pop());
 
-    sort();
-
     cout << "printing preorder after tree creation..." << endl;
 
     printPre(tree.getRoot());
@@ -86,19 +84,22 @@ void Huffman::createTree() {
 string Huffman::code() {
     static string output = "";
     map<char, string> aux;
+    map<char, string> encodedString;
 
     cout << "printing preorder on code()..." << endl;
     printPre(tree.getRoot());
 
-    aux = preOrder(tree.getRoot());
+    encode(treeP, &encodedString);
 
     /* for (map<char, string>::iterator it = aux.begin(); it != aux.end(); *++it) */
     /*     cout << "map[" << it->first << "] = " << it->second << endl; */
-
+    
+    /*
     for (int i = 0; i < input.size(); i++) {
         output += aux[input[i]];
         output += '/';
     }
+    */
 
     return output;
 }

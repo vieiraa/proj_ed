@@ -60,11 +60,6 @@ void Huffman::createTree() {
 
 /*         sleep(10); */
 
-        if (fF != '/')
-            treeP.push_back(first);
-        if (sF != '/')
-            treeP.push_back(second);
-
         cout << "cheguei ake" << endl;
 
         root.setPair(make_pair('/', fS + sS));
@@ -72,8 +67,6 @@ void Huffman::createTree() {
         right.setPair(make_pair(sF, sS));
         root.setLeft(&left);
         root.setRight(&right);
-        left.setFather(&root, '0', '1');
-        right.setFather(&root, '0', '1');
 
         cout << "balbal" << endl;
         queue.print();
@@ -109,7 +102,7 @@ string Huffman::code() {
     cout << "printing preorder on code()..." << endl;
     printPre(tree.getRoot());
 
-    encode(treeP, &encodedString);
+//      encode(treeP, &encodedString);
 
     /* for (map<char, string>::iterator it = aux.begin(); it != aux.end(); *++it) */
     /*     cout << "map[" << it->first << "] = " << it->second << endl; */

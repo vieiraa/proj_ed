@@ -1,45 +1,12 @@
 #include <unistd.h>
 #include "Tree.h"
 
-Father::Father(Element *e, char l, char r) {
-    this->father = e;
-    this->flagL = l;
-    this->flagR = r;
-}
-
-Father::Father(){}
-
-void Father::setFather(Element *e) {
-    father = e;
-}
-
-void Father::setFlag(char l, char r) {
-    flagL = l;
-    flagR = r;
-}
-
-Element *Father::getFather() {
-    return father;
-}
-
-char Father::getLFlag() {
-    return flagL;
-}
-
-char Father::getRFlag() {
-    return flagR;
-}
-
 Element::Element(pair<char, int> p) {
     setPair(p);
 }
 
 Element::Element(){};
 
-void Element::setFather(Element *e, char l, char r) {
-    father.setFather(e);
-    father.setFlag(l, r);
-}
 void Element::setPair(pair<char, int> p) {
     this->data = p;
 }
@@ -54,10 +21,6 @@ void Element::setRight(Element *e) {
 
 Element *Element::getLeft() {
     return left;
-}
-
-Father *Element::getFather() {
-    return &father;
 }
 
 pair<char, int> &Element::getData() {
@@ -162,7 +125,6 @@ map<char, string> preOrder(Element *tree) {
 
     return data;
 }
-*/
 
 void encode(vector<Element *> treeP, map<char, string> *par) {
     if(!(treeP.size()))
@@ -194,6 +156,7 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
     
     *par = hash;
 }
+*/
 
 void printPre(Element *root) {
     if (!root)

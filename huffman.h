@@ -15,13 +15,11 @@ class Huffman {
     BinaryTree tree;
     string input;
     map<char, int> aux;
-    vector<Element *> treeP;
 
 public:
     Huffman(string);
     void createTree();
     string code();
-    void sort(string, vector<Element *> *);
 };
 
 #endif

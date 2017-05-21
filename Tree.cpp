@@ -174,12 +174,15 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
     sleep(10);
     
     for(int i = 0; i < treeP.size(); i++) {
-        for(Element *p = treeP[i]; p->father.getFather(); p = p->father.getFather())
+        for(Element *p = treeP[i]; p->father.getFather(); p = p->father.getFather()) {
+            cout << endl << p->father.getFlag() << endl;
             hash[p->getData().first] += p->father.getFlag();   
+        }
     }
-
+    
+    
     for (map<char, string>::iterator it = hash.begin(); it != hash.end(); *++it) {
-        cout << "exibindo hash em encode..." << endl;
+        cout << endl << "exibindo hash em encode..." << endl;
         cout << "[" << it->first << "] = " << it->second << endl;
     }
     

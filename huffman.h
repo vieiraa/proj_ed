@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <vector>
 #include "Queue.h"
 #include "Tree.h"
 
@@ -14,6 +15,7 @@ class Huffman {
     BinaryTree tree;
     string input;
     map<char, int> aux;
+    vector<Element *> treeP;
 
 public:
     Huffman(string);

@@ -1,5 +1,27 @@
-#include <queue>
 #include "Tree.h"
+
+Father::Father(Element *e, char c) {
+    this->father = e;
+    this->flag = c;
+}
+
+Father::Father(){}
+
+void Father::setFather(Element *e) {
+    father = e;
+}
+
+void Father::setFlag(char f) {
+    flag = f;
+}
+
+Element *Father::getFather() {
+    return father;
+}
+
+char Father::getFlag() {
+    return flag;
+}
 
 Element::Element(pair<char, int> p) {
     setPair(p);
@@ -7,6 +29,10 @@ Element::Element(pair<char, int> p) {
 
 Element::Element(){};
 
+void Element::setFather(Element *e, char c) {
+    father.setFather(e);
+    father.setFlag(c);
+}
 void Element::setPair(pair<char, int> p) {
     this->data = p;
 }
@@ -21,6 +47,10 @@ void Element::setRight(Element *e) {
 
 Element *Element::getLeft() {
     return left;
+}
+
+Father *Element::getFather() {
+    return &father;
 }
 
 pair<char, int> &Element::getData() {
@@ -63,21 +93,21 @@ map<char, string> test(Element *element) {
     stringstream aux;
     Element p;
     queue<Element> queue;
-    
+
     if(element) {
         queue.push(*element);
-        
+
         while(!queue.empty()) {
             p = queue.front();
             queue.pop();
-            
+
             if(p.left) {
                 aux << 0;
                 data[p.left->getData().first] += aux.str();
                 aux.str("");
                 queue.push(*(p.left));
             }
-            
+
             if(p.right) {
                 aux << 1;
                 data[p.right->getData().first] += aux.str();
@@ -86,7 +116,7 @@ map<char, string> test(Element *element) {
             }
         }
     }
-    
+
     return data;
 }
 
@@ -113,12 +143,12 @@ map<char, string> preOrder(Element *tree) {
         flag = "left";
         return preOrder(tree->left);
     }
-    
+
     if (tree->right) {
         flag = "right";
         return preOrder(tree->right);
     }
-     
+
     for (map<char, string>::iterator it = data.begin(); it != data.end(); *++it)
         cout << "map[" << it->first << "] = " << it->second << endl;
 

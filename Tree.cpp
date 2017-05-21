@@ -155,6 +155,19 @@ map<char, string> preOrder(Element *tree) {
     return data;
 }
 
+void encode(vector<Element *> treeP) {
+    if(!size)
+        return;
+    
+    string show = "";
+    
+    for(int i = 0; i < treeP.size(); i++) {
+        for(Element *p = treeP[i]; p->father; p = p->father)
+            show += treeP[i]->father.flag;
+        show += '/';
+    }
+}
+
 void printPre(Element *root) {
 
     if (!root)

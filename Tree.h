@@ -1,6 +1,7 @@
 #ifndef TREE_H
 #define TREE_H
 
+#include "stack.h"
 #include <iostream>
 #include <utility>
 #include <sstream>
@@ -24,6 +25,7 @@ class Element {
         void setRight(Element *);
         Element *getLeft();
         pair<char, int> &getData();
+        bool isLeaf();
 };
 
 class BinaryTree {
@@ -45,6 +47,7 @@ Element *search(Element *, pair<char, int>);
 map<char, string> preOrder(Element *);
 map<char, string> test(Element *);
 // void encode(vector<Element *>, map<char, string> *);
+map<char, string> traversal(Element *, Stack);
 void printPre(Element *);
 
 #endif //TREE_H

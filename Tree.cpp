@@ -27,6 +27,10 @@ pair<char, int> &Element::getData() {
     return data;
 }
 
+bool Element::isLeaf() {
+    return !left && !right;
+}
+
 BinaryTree::BinaryTree() {
     this->root = NULL;
 }
@@ -157,6 +161,38 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
     *par = hash;
 }
 */
+
+map<char, string> traversal(Element *root, Stack stack) {
+    static map<char, string> hash;
+    
+    if(root->isLeaf()) {
+        stringstream aux;
+        
+        Stack auxS;
+        
+        for(; !stack.empty(); auxS.push(stack.pop()));
+        
+        for(char c; !auxS.empty();) {
+            c = auxS.pop();
+            stack.push(c);
+            aux << c;
+        }
+        
+        hash[root->getData().first] = aux.str();
+        
+        return hash;
+    }
+    
+    stack.push('0');
+    traversal(root->left, stack);
+    stack.pop();
+    
+    stack.push('1');
+    traversal(root->right, stack);
+    stack.pop();
+    
+    return hash;
+}
 
 void printPre(Element *root) {
     if (!root)

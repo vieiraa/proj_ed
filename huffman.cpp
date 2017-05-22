@@ -76,17 +76,35 @@ void Huffman::createTree() {
 }
 
 string Huffman::code() {
-    static string output = "";
-    Stack stack;
-    List list;
+    string output = "";
 
     traversal(tree, stack, &list);
-    
-    cout << endl << list.toString();
     
 //  SORTING THE ENCRYPTED CODE
     for(int i = 0; i < input.size(); i++)
         output += list.visitSecond(list.searchFirst(input[i]));
+    
+    for(int i = 0; i < input.size(); i++) {
+        codedInput += list.visitSecond(list.searchFirst(input[i]));
+        codedInput += '*';
+    }
 
+    return output;
+}
+
+string Huffman::decode() {
+    string output;
+    string aux = output = "";
+    
+    for(int i = 0; i < codedInput.size(); i++) {
+        if(codedInput[i] == '*') {
+            output += list.visitFirst(list.searchSecond(aux));
+            i++;
+            aux = "";
+        }
+        
+        aux += codedInput[i];
+    }
+    
     return output;
 }

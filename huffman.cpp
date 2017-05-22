@@ -16,7 +16,7 @@ Huffman::Huffman(string s) {
         root.setPair(*it);
         root.setLeft(NULL);
         root.setRight(NULL);
-        queue.push(&root);
+        queue.push(root);
     }
 
     /* cout << queue.toString() << endl; */
@@ -87,7 +87,7 @@ void Huffman::createTree() {
 
         /* printPre(auxTree.getRoot()); */
 
-        queue.push(root);
+        queue.push(*root);
     }
 
 //     cout << "print queue after this shit..." << endl;
@@ -98,8 +98,8 @@ void Huffman::createTree() {
 
     /* queue.print(); */
     
-    Element root = queue.pop();
-    tree.setRoot(&root);
+    tree = queue.pop();
+    cout << "Root: " << tree.getData().first << " : " << tree.getData().second << endl;
 
 //     cout << "printing preorder after tree creation..." << endl;
 
@@ -113,7 +113,8 @@ string Huffman::code() {
 
 //     cout << "printing preorder on code()..." << endl;
 //     printPre(tree.getRoot());
-    traversal(tree.getRoot(), stack, &list);
+    cout << "Root: " << tree.getData().first << " : " << tree.getData().second << endl;
+    traversal(&tree, stack, &list);
 
 //     cout << list.toString() << endl;
     

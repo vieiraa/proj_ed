@@ -30,7 +30,7 @@ class Queue {
         Node *getFront();
 
 //      PUSH FUNCTIONS
-        void push(Element *);
+        void push(Element);
 
 //      POP FUNCTIONS
         Element pop();

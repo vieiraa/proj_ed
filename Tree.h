@@ -25,6 +25,7 @@ class Element {
         void setLeft(Element *);
         void setRight(Element *);
         Element *getLeft();
+        Element *getRight();
         pair<char, int> getData();
         char getDataFirst();
         int getDataSecond();

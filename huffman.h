@@ -12,7 +12,7 @@ using namespace std;
 
 class Huffman {
     Queue queue;
-    BinaryTree tree;
+    Element tree;
     string input;
     map<char, int> aux;
 

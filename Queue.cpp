@@ -54,11 +54,11 @@ Node * Queue::getFront() {
     return front;
 }
 
-void Queue::push(Element *data) {
+void Queue::push(Element data) {
     Node *node = new Node();
     
     node->next = NULL;
-    node->data = *data;
+    node->data = data;
     
     if(this->empty()) {
         node->prev = NULL;

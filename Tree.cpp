@@ -25,6 +25,10 @@ Element *Element::getLeft() {
     return left;
 }
 
+Element *Element::getRight() {
+    return right;
+}
+
 pair<char, int> Element::getData() {
     return data;
 }

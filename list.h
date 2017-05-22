@@ -24,7 +24,11 @@ class List {
         int size();
         bool empty();
         pair<char, string> visit(int);
+        char visitFirst(int);
+        string visitSecond(int);
         int search(pair<char, string>);
+        int searchFirst(char);
+        int searchSecond(string);
         string toString();
         
         //INSERT FUNCTIONS

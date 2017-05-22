@@ -25,11 +25,53 @@ pair<char, string> List::visit(int pos) {
     return p->data;
 }
 
+char List::visitFirst(int pos) {    
+    if((pos-1) > this->sizeQ)
+        pos = this->sizeQ;
+    
+    ListNode *p = this->head;
+    
+    for(int i = 1; i < pos; p = p->next, i++);
+        
+    return p->data.first;
+}
+
+string List::visitSecond(int pos) {    
+    if((pos-1) > this->sizeQ)
+        pos = this->sizeQ;
+    
+    ListNode *p = this->head;
+    
+    for(int i = 1; i < pos; p = p->next, i++);
+        
+    return p->data.second;
+}
+
 int List::search(pair<char, string> data) {
     ListNode *p = this->head;
     
     for(int i = 1; p; p = p->next, i++)
         if(p->data == data)
+            return i;
+        
+    return 0;
+}
+
+int List::searchFirst(char data) {
+    ListNode *p = this->head;
+    
+    for(int i = 1; p; p = p->next, i++)
+        if(p->data.first == data)
+            return i;
+        
+    return 0;
+}
+
+int List::searchSecond(string data) {
+    ListNode *p = this->head;
+    
+    for(int i = 1; p; p = p->next, i++)
+        if(!(p->data.second.compare(data)))
             return i;
         
     return 0;

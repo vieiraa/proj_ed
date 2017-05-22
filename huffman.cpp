@@ -84,8 +84,9 @@ string Huffman::code() {
     
     cout << endl << list.toString();
     
-    for (int i = 1; i <= list.size(); i++)
-        output += list.visit(i).second;
+//  SORTING THE ENCRYPTED CODE
+    for(int i = 0; i < input.size(); i++)
+        output += list.visitSecond(list.searchFirst(input[i]));
 
     return output;
 }

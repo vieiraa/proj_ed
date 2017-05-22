@@ -14,7 +14,7 @@ int main() {
     string show = compactor.code();
 
     cout << endl << "String: " << show << endl;
-    cout << "Tamanho codificado = " << show.size() * 8 << " bits" << endl;
+    cout << "Tamanho codificado = " << show.size() << " bits" << endl;
 
     return 0;
 }

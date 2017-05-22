@@ -176,19 +176,10 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
 }
 */
 
-void traversal(Element *root, Stack stack, List *list) {
+void traversal(Element root, Stack stack, List *list) {
     int static indx = 1;
     
-//     cout << "cheguei ake" << endl;
-    if (!root) {
-//         cout << "root eh null" << endl;
-        return;
-    }
-    
-    if(root->isLeaf()) {
-        cout << "cheguei ake" << endl;
-        cout << root->getData().first << " : " << root->getData().second << endl;
-        
+    if(root.isLeaf()) {
         stringstream aux;
         Stack auxS;
         
@@ -200,16 +191,18 @@ void traversal(Element *root, Stack stack, List *list) {
             aux << c;
         }
         
-        list->insert(indx, make_pair(root->getDataFirst(), aux.str()));
+        list->insert(indx, make_pair(root.getDataFirst(), aux.str()));
         indx++;
+        
+        return;
     }
     
     stack.push('0');
-    traversal(root->left, stack, list);
+    traversal(*(root.left), stack, list);
     stack.pop();
     
     stack.push('1');
-    traversal(root->right, stack, list);
+    traversal(*(root.right), stack, list);
     stack.pop();
 }
 

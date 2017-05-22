@@ -50,8 +50,7 @@ class BinaryTree {
 Element *search(Element *, pair<char, int>);
 map<char, string> preOrder(Element *);
 map<char, string> test(Element *);
-// void encode(vector<Element *>, map<char, string> *);
-void traversal(Element *, Stack, List *);
+void traversal(Element, Stack, List *);
 void printPre(Element *);
 
 #endif //TREE_H

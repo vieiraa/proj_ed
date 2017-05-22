@@ -26,9 +26,6 @@ void Queue::sort() {
     bool flag;
     Node *aux = front;
 
-    /* cout << "printing queue" << endl; */
-    /* cout << toString() << endl; */
-
     do {
         for (int i = 0; i < size() - 2; i++) {
             for (int j = 0; j < size() - i - 1; j++) {
@@ -45,9 +42,6 @@ void Queue::sort() {
             }
         }
     } while (flag);
-
-    /* cout << "printing ordered queue" << endl; */
-    /* cout << toString() << endl; */
 }
 
 Node * Queue::getFront() {
@@ -83,7 +77,7 @@ void Queue::print() {
 }
 
 Element Queue::pop() {
-    static Element data;
+    Element data;
     
     if(!this->empty()) {
         Node *p = this->front;

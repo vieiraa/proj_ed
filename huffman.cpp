@@ -64,7 +64,7 @@ void Huffman::createTree() {
 
         Element *left = new Element(make_pair(fF, fS), NULL, NULL);
         Element *right = new Element(make_pair(sF, sS), NULL, NULL);
-        Element *root = new Element(make_pair('/', fS + sS), left, right);
+        Element *root = new Element(make_pair('/', (fS+sS)), left, right);
         /* left.setPair(make_pair(fF, fS)); */
         /* left.setLeft(NULL); */
         /* left.setRight(NULL); */

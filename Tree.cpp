@@ -38,12 +38,7 @@ int Element::getDataSecond() {
 }
 
 bool Element::isLeaf() {
-    long int l = (long)left;
-    long int r = (long)right;
-    if (!left && !right)
-        return true;
-    return false;
-    /* return !left && !right && this->getDataFirst() != '/'; */
+    return !left && !right && this->getDataFirst() != '/';
 }
 
 BinaryTree::BinaryTree() {
@@ -180,11 +175,12 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
 void traversal(Element *root, Stack stack, List *list) {
     int static indx = 1;
     
-    cout << "cheguei ake" << endl;
+//     cout << "cheguei ake" << endl;
     if (!root) {
-        cout << "root eh null" << endl;
+//         cout << "root eh null" << endl;
         return;
     }
+    
     if(root->isLeaf()) {
         stringstream aux;
         Stack auxS;

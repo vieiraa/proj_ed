@@ -117,7 +117,7 @@ int List::delIndx(int pos, pair<char, string> *data) {
 
 string List::toString() {
     if(this->empty())
-        return "Empty\n";
+        return "Empty List\n";
     
     stringstream data;
     string show = "List: {";

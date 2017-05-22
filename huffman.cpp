@@ -37,7 +37,7 @@ Huffman::Huffman(string s) {
 }
 
 void Huffman::createTree() {
-    static Element root, left, right;
+    /* static Element root, left, right; */
     Element *first, *second;
     /* BinaryTree auxTree; */
     static int c = 0;
@@ -62,11 +62,17 @@ void Huffman::createTree() {
 
 //         cout << "cheguei ake" << endl;
 
-        root.setPair(make_pair('/', fS + sS));
-        left.setPair(make_pair(fF, fS));
-        right.setPair(make_pair(sF, sS));
-        root.setLeft(&left);
-        root.setRight(&right);
+        Element *left = new Element(make_pair(fF, fS), NULL, NULL);
+        Element *right = new Element(make_pair(sF, sS), NULL, NULL);
+        Element *root = new Element(make_pair('/', fS + sS), left, right);
+        /* left.setPair(make_pair(fF, fS)); */
+        /* left.setLeft(NULL); */
+        /* left.setRight(NULL); */
+        /* right.setPair(make_pair(sF, sS)); */
+        /* right.setLeft(NULL); */
+        /* right.setRight(NULL); */
+        /* root.setLeft(&left); */
+        /* root.setRight(&right); */
 
 //         cout << "balbal" << endl;
 //         queue.print();
@@ -77,7 +83,7 @@ void Huffman::createTree() {
 
         /* printPre(auxTree.getRoot()); */
 
-        queue.push(&root);
+        queue.push(root);
     }
 
 //     cout << "print queue after this shit..." << endl;

@@ -1,8 +1,10 @@
 #include <unistd.h>
 #include "Tree.h"
 
-Element::Element(pair<char, int> p) {
-    setPair(p);
+Element::Element(pair<char, int> p, Element *l = NULL, Element *r = NULL) {
+    data = p;
+    left = l;
+    right = r;
 }
 
 Element::Element(){};
@@ -36,7 +38,12 @@ int Element::getDataSecond() {
 }
 
 bool Element::isLeaf() {
-    return !left && !right && this->getDataFirst() != '/';
+    long int l = (long)left;
+    long int r = (long)right;
+    if (!left && !right)
+        return true;
+    return false;
+    /* return !left && !right && this->getDataFirst() != '/'; */
 }
 
 BinaryTree::BinaryTree() {
@@ -173,6 +180,11 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
 void traversal(Element *root, Stack stack, List *list) {
     int static indx = 1;
     
+    cout << "cheguei ake" << endl;
+    if (!root) {
+        cout << "root eh null" << endl;
+        return;
+    }
     if(root->isLeaf()) {
         stringstream aux;
         Stack auxS;

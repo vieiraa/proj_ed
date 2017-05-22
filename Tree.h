@@ -17,7 +17,7 @@ class Element {
         Element *left;
         Element *right;
 
-        Element(pair<char, int> p);
+        Element(pair<char, int>, Element *, Element *);
         Element();
         void setFather(Element *);
         void setFlag(string);

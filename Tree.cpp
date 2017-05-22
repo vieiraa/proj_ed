@@ -36,7 +36,7 @@ int Element::getDataSecond() {
 }
 
 bool Element::isLeaf() {
-    return !left && !right && root->getDataFirst() != '/';
+    return !left && !right && this->getDataFirst() != '/';
 }
 
 BinaryTree::BinaryTree() {
@@ -170,8 +170,8 @@ void encode(vector<Element *> treeP, map<char, string> *par) {
 }
 */
 
-map<char, string> traversal(Element *root, Stack stack) {
-    static map<char, string> hash;
+void traversal(Element *root, Stack stack, List *list) {
+    int static indx = 1;
     
     if(root->isLeaf()) {
         stringstream aux;
@@ -185,20 +185,17 @@ map<char, string> traversal(Element *root, Stack stack) {
             aux << c;
         }
         
-        hash[root->getDataFirst()] = aux.str();
-        
-        return hash;
+        list->insert(indx, make_pair(root->getDataFirst(), aux.str()));
+        indx++;
     }
     
     stack.push('0');
-    traversal(root->left, stack);
+    traversal(root->left, stack, list);
     stack.pop();
     
     stack.push('1');
-    traversal(root->right, stack);
+    traversal(root->right, stack, list);
     stack.pop();
-    
-    return hash;
 }
 
 void printPre(Element *root) {

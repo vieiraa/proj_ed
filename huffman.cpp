@@ -98,18 +98,16 @@ void Huffman::createTree() {
 string Huffman::code() {
     static string output = "";
     Stack stack;
-    map<char, string> encodedString;
+    List list;
 
 //     cout << "printing preorder on code()..." << endl;
 //     printPre(tree.getRoot());
+    traversal(tree.getRoot(), stack, &list);
 
-    encodedString = traversal(tree.getRoot(), stack);
-
-     for (map<char, string>::iterator it = encodedString.begin(); it != encodedString.end(); *++it)
-         cout << "map[" << it->first << "] = " << it->second << endl;
+    cout << list.toString() << endl;
     
-    for (int i = 0; i < input.size(); i++)
-        output += encodedString[input[i]];
+    for (int i = 1; i <= list.size(); i++)
+        output += list.visit(i).second;
 
     return output;
 }

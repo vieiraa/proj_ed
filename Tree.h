@@ -2,6 +2,7 @@
 #define TREE_H
 
 #include "stack.h"
+#include "list.h"
 #include <iostream>
 #include <utility>
 #include <sstream>
@@ -49,7 +50,7 @@ Element *search(Element *, pair<char, int>);
 map<char, string> preOrder(Element *);
 map<char, string> test(Element *);
 // void encode(vector<Element *>, map<char, string> *);
-map<char, string> traversal(Element *, Stack);
+void traversal(Element *, Stack, List *);
 void printPre(Element *);
 
 #endif //TREE_H

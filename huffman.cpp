@@ -21,6 +21,8 @@ Huffman::Huffman(string s) {
 
     queue.sort();
     queue.sort();
+    
+    dataString = queue.toString();
 }
 
 void Huffman::createTree() {
@@ -107,4 +109,12 @@ string Huffman::decode() {
     }
     
     return output;
+}
+
+string Huffman::listToString() {
+    return list.toString();
+}
+
+string Huffman::queueToString() {
+    return dataString;
 }

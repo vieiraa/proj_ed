@@ -98,13 +98,18 @@ Element Queue::pop() {
 
 string Queue::toString() {
     stringstream text;
-    string show = "";
+    string show = "Queue: {";
     
     Node *p = this->front;
     
     for(int i = 0; i < this->sizeQ; p = p->next, i++) {
-        text << p->data.data.first << " : " << p->data.data.second << endl;
-        show += text.str();
+        text << p->data.data.first << " : " << p->data.data.second;
+        
+        if((i+1) >= this->sizeQ)
+            show += text.str() + "}";
+        else
+            show += text.str() + ", ";
+        
         text.str("");
     }
     

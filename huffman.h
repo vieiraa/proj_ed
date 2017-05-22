@@ -15,6 +15,7 @@ class Huffman {
     Stack stack;
     List list;
     Element tree;
+    string dataString;
     string input;
     string codedInput;
     map<char, int> aux;
@@ -24,6 +25,8 @@ public:
     void createTree();
     string code();
     string decode();
+    string listToString();
+    string queueToString();
 };
 
 #endif

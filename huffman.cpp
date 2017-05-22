@@ -20,8 +20,8 @@ Huffman::Huffman(string s) {
     }
 
     /* cout << queue.toString() << endl; */
-    cout << "ala" << endl;
-    queue.print();
+//     cout << "ala" << endl;
+//     queue.print();
     /* sleep(5); */
 
     /* for (map<char, int>::iterator it = aux.begin(); it != aux.end(); *++it) { */
@@ -31,8 +31,8 @@ Huffman::Huffman(string s) {
     queue.sort();
     queue.sort();
 
-    cout << "printing after sorting..." << endl;
-    cout << queue.toString() << endl;
+//     cout << "printing after sorting..." << endl;
+//     cout << queue.toString() << endl;
     
 }
 
@@ -42,7 +42,7 @@ void Huffman::createTree() {
     /* BinaryTree auxTree; */
     static int c = 0;
 
-    cout << queue.toString() << endl;
+//     cout << queue.toString() << endl;
 
     while (queue.size() > 1) {
         first = queue.pop();
@@ -60,7 +60,7 @@ void Huffman::createTree() {
 
 /*         sleep(10); */
 
-        cout << "cheguei ake" << endl;
+//         cout << "cheguei ake" << endl;
 
         root.setPair(make_pair('/', fS + sS));
         left.setPair(make_pair(fF, fS));
@@ -68,9 +68,9 @@ void Huffman::createTree() {
         root.setLeft(&left);
         root.setRight(&right);
 
-        cout << "balbal" << endl;
-        queue.print();
-        printPre(&root);
+//         cout << "balbal" << endl;
+//         queue.print();
+//         printPre(&root);
         /* sleep(5); */
 
         /* cout << "testing..." << endl; */
@@ -80,8 +80,8 @@ void Huffman::createTree() {
         queue.push(&root);
     }
 
-    cout << "print queue after this shit..." << endl;
-    cout << queue.toString() << endl;
+//     cout << "print queue after this shit..." << endl;
+//     cout << queue.toString() << endl;
 
     /* cout << "teste..." << endl; */
     /* cout << queue.getFront()->data.getLeft()->getData().second << endl; */
@@ -90,9 +90,9 @@ void Huffman::createTree() {
 
     tree.setRoot(queue.pop());
 
-    cout << "printing preorder after tree creation..." << endl;
+//     cout << "printing preorder after tree creation..." << endl;
 
-    printPre(tree.getRoot());
+//     printPre(tree.getRoot());
 }
 
 string Huffman::code() {
@@ -100,13 +100,13 @@ string Huffman::code() {
     Stack stack;
     map<char, string> encodedString;
 
-    cout << "printing preorder on code()..." << endl;
-    printPre(tree.getRoot());
+//     cout << "printing preorder on code()..." << endl;
+//     printPre(tree.getRoot());
 
     encodedString = traversal(tree.getRoot(), stack);
 
-    /* for (map<char, string>::iterator it = aux.begin(); it != aux.end(); *++it) */
-    /*     cout << "map[" << it->first << "] = " << it->second << endl; */
+     for (map<char, string>::iterator it = encodedString.begin(); it != encodedString.end(); *++it)
+         cout << "map[" << it->first << "] = " << it->second << endl;
     
     for (int i = 0; i < input.size(); i++)
         output += encodedString[input[i]];

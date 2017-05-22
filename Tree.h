@@ -24,7 +24,9 @@ class Element {
         void setLeft(Element *);
         void setRight(Element *);
         Element *getLeft();
-        pair<char, int> &getData();
+        pair<char, int> getData();
+        char getDataFirst();
+        int getDataSecond();
         bool isLeaf();
 };
 

@@ -23,12 +23,20 @@ Element *Element::getLeft() {
     return left;
 }
 
-pair<char, int> &Element::getData() {
+pair<char, int> Element::getData() {
     return data;
 }
 
+char Element::getDataFirst() {
+    return data.first;
+}
+
+int Element::getDataSecond() {
+    return data.second;
+}
+
 bool Element::isLeaf() {
-    return !left && !right;
+    return !left && !right && root->getDataFirst() != '/';
 }
 
 BinaryTree::BinaryTree() {
@@ -167,7 +175,6 @@ map<char, string> traversal(Element *root, Stack stack) {
     
     if(root->isLeaf()) {
         stringstream aux;
-        
         Stack auxS;
         
         for(; !stack.empty(); auxS.push(stack.pop()));
@@ -178,7 +185,7 @@ map<char, string> traversal(Element *root, Stack stack) {
             aux << c;
         }
         
-        hash[root->getData().first] = aux.str();
+        hash[root->getDataFirst()] = aux.str();
         
         return hash;
     }

@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include "Tree.h"
 
-Element::Element(pair<char, int> p, Element *l = NULL, Element *r = NULL) {
+Element::Element(pair<char, int> p, Element *l, Element *r) {
     data = p;
     left = l;
     right = r;
@@ -182,6 +182,9 @@ void traversal(Element *root, Stack stack, List *list) {
     }
     
     if(root->isLeaf()) {
+        cout << "cheguei ake" << endl;
+        cout << root->getData().first << " : " << root->getData().second << endl;
+        
         stringstream aux;
         Stack auxS;
         

@@ -38,20 +38,24 @@ Huffman::Huffman(string s) {
 
 void Huffman::createTree() {
     /* static Element root, left, right; */
-    Element *first, *second;
+    Element first, second;
     /* BinaryTree auxTree; */
     static int c = 0;
 
 //     cout << queue.toString() << endl;
 
     while (queue.size() > 1) {
+        cout << queue.toString() << endl;
         first = queue.pop();
         second = queue.pop();
-
-        char fF = first->getData().first;
-        int fS = first->getData().second;
-        char sF = second->getData().first;
-        int sS = second->getData().second;
+        
+        cout << "First: " << first.getData().first << " : " << first.getData().second << endl;
+        cout << "Second: " << second.getData().first << " : " << second.getData().second << endl;
+        
+        char fF = first.getData().first;
+        int fS = first.getData().second;
+        char sF = second.getData().first;
+        int sS = second.getData().second;
 
 /*         cout << "fF = " << fF << endl; */
 /*         cout << "fS = " << fS << endl; */
@@ -93,8 +97,9 @@ void Huffman::createTree() {
     /* cout << queue.getFront()->data.getLeft()->getData().second << endl; */
 
     /* queue.print(); */
-
-    tree.setRoot(queue.pop());
+    
+    Element root = queue.pop();
+    tree.setRoot(&root);
 
 //     cout << "printing preorder after tree creation..." << endl;
 
@@ -110,7 +115,7 @@ string Huffman::code() {
 //     printPre(tree.getRoot());
     traversal(tree.getRoot(), stack, &list);
 
-    cout << list.toString() << endl;
+//     cout << list.toString() << endl;
     
     for (int i = 1; i <= list.size(); i++)
         output += list.visit(i).second;

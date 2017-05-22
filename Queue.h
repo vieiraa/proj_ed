@@ -33,7 +33,7 @@ class Queue {
         void push(Element *);
 
 //      POP FUNCTIONS
-        Element *pop();
+        Element pop();
 
 //      PRINT FUNCTIONS
         string toString();

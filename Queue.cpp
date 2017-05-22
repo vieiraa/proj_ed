@@ -82,7 +82,7 @@ void Queue::print() {
     }
 }
 
-Element *Queue::pop() {
+Element Queue::pop() {
     static Element data;
     
     if(!this->empty()) {
@@ -99,7 +99,7 @@ Element *Queue::pop() {
         this->sizeQ--;
     }
     
-    return &data;
+    return data;
 }
 
 string Queue::toString() {

@@ -1,14 +1,8 @@
 #ifndef HUFFMAN_H
 #define HUFFMAN_H
 
-#include <iostream>
-#include <string>
 #include <map>
-#include <vector>
 #include "Queue.h"
-#include "Tree.h"
-
-using namespace std;
 
 class Huffman {
     Queue queue;

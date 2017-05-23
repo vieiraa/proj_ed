@@ -1,9 +1,6 @@
-#include <unistd.h>
-#include "Tree.h"
 #include "huffman.h"
 
 Huffman::Huffman(string s) {
-    BinaryTree auxTree;
     Element root, left, right;
 
     input = s;
@@ -74,6 +71,7 @@ void Huffman::createTree() {
         queue.push(*root);
     }
     
+//  SETTING THE FINAL NODE
     tree = queue.pop();
 }
 

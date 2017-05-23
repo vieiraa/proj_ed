@@ -1,8 +1,7 @@
 #ifndef LISTA_DINAMICA_H
 #define LISTA_DINAMICA_H
 
-#include<iostream>
-#include<cstdlib>
+#include <iostream>
 #include <utility>
 
 using namespace std;

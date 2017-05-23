@@ -4,6 +4,7 @@ Huffman::Huffman(string s) {
     Element root, left, right;
 
     input = s;
+    size = input.size();
 
     for (int i = 0; i < input.size(); i++) {
         aux[input[i]]++;
@@ -73,6 +74,7 @@ void Huffman::createTree() {
     
 //  SETTING THE FINAL NODE
     tree = queue.pop();
+    aux2 = tree.getData();
 }
 
 string Huffman::code() {
@@ -95,6 +97,13 @@ string Huffman::code() {
 string Huffman::decode() {
     string output;
     string aux = output = "";
+    
+    if(list.size() == 1 && aux2.second > 1) {
+        for(int i = 0; i < size; i++)
+            output += list.visitFirst(1);
+        
+        return output;
+    }
     
     for(int i = 0; i < codedInput.size(); i++) {
         if(codedInput[i] == '*') {

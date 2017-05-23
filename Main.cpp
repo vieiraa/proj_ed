@@ -45,7 +45,7 @@ int main(int argc, char **argv) {
     string show = compactor.code();
     
     cout << endl << "Dados e suas aparições no input -> " << compactor.queueToString() << endl;
-    cout << "Dados e suas codificações -> " << compactor.listToString() << endl;
+    cout << "Dados e suas codificações -> " << compactor.listToString();
     
     cout << endl << "String Codificada: " << show << endl;
     cout << "Tamanho Codificado = " << show.size() << " bits" << endl;

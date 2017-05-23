@@ -13,6 +13,8 @@ class Huffman {
     string input;
     string codedInput;
     map<char, int> aux;
+    pair<char, int> aux2;
+    int size;
 
 public:
     Huffman(string);

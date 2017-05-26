@@ -1,5 +1,4 @@
 #include "stack.h"
-#include <sstream>
 
 Stack::Stack() {
     top = NULL;
@@ -34,17 +33,12 @@ string Stack::toString() {
         return "Empty";
 
     string show = "Stack: {";
-    stringstream data;
     
     for(StackNode *p = this->top; p; p = p->next) {
-        data << p->data;
-        
         if(!p->next)
-            show += data.str() + "}";
+            show += p->data + "}";
         else
-            show += data.str() + ", ";
-        
-        data.str("");
+            show += p->data + ", ";
     }
     
     return show;
@@ -55,7 +49,7 @@ void Stack::push(char data) {
 
     node->data = data;
     node->next = this->top;
-    this->top = node;
+    this->top  = node;
     
     this->sizeS++;
 }
@@ -68,7 +62,7 @@ char Stack::pop() {
     this->top = p->next;
     
     char data = p->data;
-    p->next  = NULL;
+    p->next   = NULL;
     delete p;
     
     this->sizeS--;

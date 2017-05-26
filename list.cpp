@@ -177,5 +177,5 @@ string List::toString() {
         data.str("");
     }
         
-    return show + "\n";    
+    return show;    
 }

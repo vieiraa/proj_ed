@@ -26,8 +26,7 @@ void Stack::invert() {
     char arr[aux];
     
     for(int i = 0; !this->empty(); arr[i] = this->pop(), i++);
-    for(int i = 0; i < aux; i++)
-        this->push(arr[i]);
+    for(int i = 0; i < aux; this->push(arr[i]), i++);
 }
 
 string Stack::toString() {

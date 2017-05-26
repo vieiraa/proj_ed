@@ -1,7 +1,7 @@
 #include "huffman.h"
 
 Huffman::Huffman(string s) {
-    Element root, left, right;
+    Element root;
 
     input = s;
     size = input.size();
@@ -20,7 +20,7 @@ Huffman::Huffman(string s) {
     queue.sort();
     queue.sort();
     
-    dataString = queue.toString();
+    dataString = "Dados e suas aparições no input....: " + queue.toString().substr(7);
 }
 
 void Huffman::createTree() {
@@ -78,16 +78,16 @@ void Huffman::createTree() {
 }
 
 string Huffman::code() {
-    string output = "";
+    string output;
+    string aux = output = "";
 
     traversal(tree, stack, &list);
     
 //  SORTING THE ENCRYPTED CODE
-    for(int i = 0; i < input.size(); i++)
-        output += list.visitSecond(list.searchFirst(input[i]));
-    
     for(int i = 0; i < input.size(); i++) {
-        codedInput += list.visitSecond(list.searchFirst(input[i]));
+        aux = list.visitSecond(list.searchFirst(input[i]));
+        output += aux;
+        codedInput += aux;
         codedInput += '*';
     }
 
@@ -118,10 +118,6 @@ string Huffman::decode() {
     return output;
 }
 
-string Huffman::listToString() {
-    return list.toString();
-}
-
-string Huffman::queueToString() {
-    return dataString;
+string Huffman::toString() {
+    return dataString + "\nDados e suas codificações na árvore: " + list.toString().substr(6);
 }

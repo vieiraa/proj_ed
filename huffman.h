@@ -21,8 +21,7 @@ public:
     void createTree();
     string code();
     string decode();
-    string listToString();
-    string queueToString();
+    string toString();
 };
 
 #endif

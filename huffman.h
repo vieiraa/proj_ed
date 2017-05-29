@@ -2,7 +2,7 @@
 #define HUFFMAN_H
 
 #include <map>
-#include "Queue.h"
+#include "queue.h"
 
 class Huffman {
     Queue queue;

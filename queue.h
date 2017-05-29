@@ -1,7 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
-#include "Tree.h"
+#include "tree.h"
 
 class Node {
     public:

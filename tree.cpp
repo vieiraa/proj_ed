@@ -1,4 +1,4 @@
-#include "Tree.h"
+#include "tree.h"
 
 Element::Element(pair<char, int> p, Element *l, Element *r) {
     data = p;

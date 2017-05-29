@@ -1,5 +1,5 @@
-#include "Tree.h"
-#include "Queue.h"
+#include "tree.h"
+#include "queue.h"
 #include <sstream>
 
 void swap(pair<char, int> *x, pair<char, int> *y) {
@@ -98,7 +98,7 @@ Element Queue::pop() {
 
 string Queue::toString() {
     stringstream text;
-    string show = "Queue: {";
+    string show = "{";
     
     Node *p = this->front;
     

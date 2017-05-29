@@ -162,7 +162,7 @@ string List::toString() {
         return "Empty List\n";
     
     stringstream data;
-    string show = "List: {";
+    string show = "{";
     
     ListNode *p = this->head;
     

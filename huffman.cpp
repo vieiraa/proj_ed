@@ -17,13 +17,10 @@ Huffman::Huffman(string s) {
         queue.push(root);
     }
     
-    cout << "..." << endl;
     queue.sort();
-    cout << "..." << endl;
     queue.sort();
-    cout << "..." << endl;
     
-    dataString = "Dados e suas aparições no input....: " + queue.toString().substr(7);
+    dataString = queue.toString();
 }
 
 void Huffman::createTree() {
@@ -123,10 +120,6 @@ string Huffman::decode() {
 }
 
 //  DECODING STRING TRAVERSING THE HUFFMAN TREE
-string Huffman::toString() {
-    return dataString + "\nDados e suas codificações na árvore: " + list.toString().substr(6);
-}
-
 string Huffman::decodeT() {
     string output = "";
     
@@ -138,4 +131,12 @@ string Huffman::decodeT() {
     traversalT(tree, myCodedString, &output, 0);
     
     return output;
+}
+
+string Huffman::listToString() {
+    return list.toString();
+}
+
+string Huffman::queueToString() {
+    return dataString;
 }

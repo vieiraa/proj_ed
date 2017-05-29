@@ -39,15 +39,13 @@ int main(int argc, char **argv) {
     cout << endl << "String Original.: " << input << endl;
     cout << "Tamanho Original: " << input.size() * 8 << " bits" << endl;
     
-    cout << "..." << endl;
     Huffman compactor(input);
-    cout << "..." << endl;
     compactor.createTree();
-    cout << "..." << endl;
 
     string show = compactor.code();
     
-    cout << endl << compactor.toString() << endl;
+    cout << endl << "Dados e suas aparições no input -> " << compactor.queueToString() << endl;
+    cout << "Dados e suas codificações -> " << compactor.listToString() << endl;
     
     cout << endl << "String Codificada.: " << show << endl;
     cout << "Tamanho Codificado: " << show.size() << " bits" << endl;

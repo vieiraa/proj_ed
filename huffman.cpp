@@ -133,10 +133,6 @@ string Huffman::decodeT() {
     return output;
 }
 
-string Huffman::listToString() {
-    return list.toString();
-}
-
-string Huffman::queueToString() {
-    return dataString;
+string Huffman::toString() {
+    return "Dados e suas aparições no input....: " + dataString + "\nDados e suas codificações na árvore: " + list.toString();
 }

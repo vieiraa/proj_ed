@@ -23,8 +23,7 @@ public:
     string code();
     string decode();
     string decodeT();
-    string listToString();
-    string queueToString();
+    string toString();
 };
 
 #endif

@@ -29,5 +29,6 @@ class Element {
 };
 
 void traversal(Element, Stack, List *);
+void traversalT(Element, string, string *, int);
 
 #endif //TREE_H

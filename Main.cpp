@@ -39,8 +39,11 @@ int main(int argc, char **argv) {
     cout << endl << "String Original.: " << input << endl;
     cout << "Tamanho Original: " << input.size() * 8 << " bits" << endl;
     
+    cout << "..." << endl;
     Huffman compactor(input);
+    cout << "..." << endl;
     compactor.createTree();
+    cout << "..." << endl;
 
     string show = compactor.code();
     

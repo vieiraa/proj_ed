@@ -73,3 +73,22 @@ void traversal(Element root, Stack stack, List *list) {
     traversal(*(root.right), stack, list);
     stack.pop();
 }
+
+void traversalT(Element root, string codedString, string *output, int i) {
+    static Element *myRoot = &root;
+    
+    if(root.isLeaf()) {
+        *output += root.getDataFirst();
+        return traversalT(*myRoot, codedString, output, i);
+    }
+    
+    switch(codedString[i]) {
+        case '0':
+            i++;
+            return traversalT(*(root.left), codedString, output, i);
+        
+        case '1':
+            i++;
+            return traversalT(*(root.right), codedString, output, i);
+    }
+}

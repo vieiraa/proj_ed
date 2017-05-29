@@ -11,6 +11,7 @@ class Huffman {
     Element tree;
     string dataString;
     string input;
+    string myCodedString;
     string codedInput;
     map<char, int> aux;
     pair<char, int> aux2;
@@ -21,6 +22,7 @@ public:
     void createTree();
     string code();
     string decode();
+    string decodeT();
     string toString();
 };
 

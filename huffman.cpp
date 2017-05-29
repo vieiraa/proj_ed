@@ -16,9 +16,12 @@ Huffman::Huffman(string s) {
         root.setRight(NULL);
         queue.push(root);
     }
-
+    
+    cout << "..." << endl;
     queue.sort();
+    cout << "..." << endl;
     queue.sort();
+    cout << "..." << endl;
     
     dataString = "Dados e suas aparições no input....: " + queue.toString().substr(7);
 }
@@ -90,18 +93,19 @@ string Huffman::code() {
         codedInput += aux;
         codedInput += '*';
     }
+    
+    myCodedString = output;
 
     return output;
 }
 
+//  DECODING STRING WITH PAIR LIST
 string Huffman::decode() {
     string output;
     string aux = output = "";
     
-    if(list.size() == 1 && aux2.second > 1) {
-        for(int i = 0; i < size; i++)
-            output += list.visitFirst(1);
-        
+    if(tree.isLeaf()) {
+        for(int i = 0; i < tree.getDataSecond(); output += tree.getDataFirst(), i++);
         return output;
     }
     
@@ -118,6 +122,20 @@ string Huffman::decode() {
     return output;
 }
 
+//  DECODING STRING TRAVERSING THE HUFFMAN TREE
 string Huffman::toString() {
     return dataString + "\nDados e suas codificações na árvore: " + list.toString().substr(6);
+}
+
+string Huffman::decodeT() {
+    string output = "";
+    
+    if(tree.isLeaf()) {
+        for(int i = 0; i < tree.getDataSecond(); output += tree.getDataFirst(), i++);
+        return output;
+    }
+    
+    traversalT(tree, myCodedString, &output, 0);
+    
+    return output;
 }
